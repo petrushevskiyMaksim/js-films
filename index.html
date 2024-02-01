@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Arimo&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Films</title>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<div class="films">
+			<div class="container">
+				<div class="films__header">
+					<div class="films__labels">
+						<span class="films__labels-list">список фильмов</span>
+						<span class="films__labels-year">2024</span>
+					</div>
+					<h1 class="films__title">Посмотреть</h1>
+				</div>
+				<div class="films__list list-films">
+					<div class="list-films__add-movie">
+						<div class="list-films__input-wrapper">
+							<input
+								id="inputNameFilm"
+								class="list-films__input-text"
+								type="text"
+								placeholder="Название фильма"
+							/>
+						</div>
+						<button
+							id="addFilmButton"
+							class="list-films__button-add"
+							type="submit"
+						>
+							<img
+								class="list-films__icon-add"
+								src="./images/arrow.svg"
+								alt="кнопка добавить фильм"
+							/>
+						</button>
+					</div>
+					<ul id="filmListHtml" class="list-films__movies">
+						<!-- <li class="list-films__item">
+							<input
+								id="inputCheckMovies"
+								class="list-films__input"
+								type="checkbox"
+							/>
+							<label class="label--checked" for="inputCheckMovies"></label>
+							<p id="textFilmName" class="list-films__text list-films--line-throgh">Остров проклятых</p>
+							<div class="list-films__image-close">
+								<img
+									class="list-films__icon-close"
+									src="./images/close.svg"
+									alt="кнопка удалить из списка"
+								/>
+							</div>
+						</li>
+						<li class="list-films__item">
+							<input
+								id="inputCheckMovies"
+								class="list-films__input"
+								type="checkbox"
+							/>
+							<label for="inputCheckMovies"></label>
+							<p class="list-films__text">Остров проклятых</p>
+							<div class="list-films__image-close">
+								<img
+									class="list-films__icon-close"
+									src="./images/close.svg"
+									alt="кнопка удалить из списка"
+								/>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="./js/script.js"></script>
+	</body>
+</html>
