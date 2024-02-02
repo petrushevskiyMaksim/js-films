@@ -1,5 +1,5 @@
 const TEXT_LIST_DEFAULT = 'Список фильмов пуст...';
-// const STORAGE_LABEL_FILMS = 'films';
+const STORAGE_LABEL_FILMS = 'films';
 
 const inputNameFilmNode = document.getElementById('inputNameFilm');
 const addFilmButtonNode = document.getElementById('addFilmButton');
@@ -10,7 +10,7 @@ let films = [];
 
 init();
 
-// newFunction();
+newFunction();
 
 addFilmButtonNode.addEventListener('click', function () {
 	const movie = getFilmFromUser();
@@ -26,16 +26,16 @@ addFilmButtonNode.addEventListener('click', function () {
 	clearInput(inputNameFilmNode);
 });
 
-// function newFunction() {
-// 	const getFilmsFromStorageString = localStorage.getItem(STORAGE_LABEL_FILMS);
-// 	const getFilmsFromStorage = JSON.parse(getFilmsFromStorageString);
-// 	films = [];
-// 	if (Array.isArray(getFilmsFromStorage)) {
-// 		films = getFilmsFromStorage;
-// 	}
+function newFunction() {
+	const getFilmsFromStorageString = localStorage.getItem(STORAGE_LABEL_FILMS);
+	const getFilmsFromStorage = JSON.parse(getFilmsFromStorageString);
+	films = [];
+	if (Array.isArray(getFilmsFromStorage)) {
+		films = getFilmsFromStorage;
+	}
 
-// 	renderFilmsList(films);
-// }
+	renderFilmsList(films);
+}
 
 function getFilmFromUser() {
 	const title = inputNameFilmNode.value.trim();
@@ -47,15 +47,17 @@ function getFilmFromUser() {
 	return newMovie;
 }
 
-// function saveFilmsToLocStorage() {
-// 	const movieToString = JSON.stringify(films);
-// 	localStorage.setItem(STORAGE_LABEL_FILMS, movieToString);
-// }
+function saveFilmsToLocStorage() {
+	const movieToString = JSON.stringify(films);
+	localStorage.setItem(STORAGE_LABEL_FILMS, movieToString);
+
+	return movieToString;
+}
 
 function trackMovie(movie) {
 	films.push(movie);
 
-	// saveFilmsToLocStorage();
+	saveFilmsToLocStorage();
 }
 
 function clearInput(input) {
@@ -107,11 +109,15 @@ filmListHtmlNode.addEventListener('click', function (event) {
 	if (event.target.dataset.index) {
 		const index = parseInt(event.target.dataset.index);
 		const type = event.target.dataset.type;
+		console.log(index);
+		console.log(type);
 
 		if (type === 'toggle') {
 			films[index].complited = !films[index].complited;
+			saveFilmsToLocStorage();
 		} else if (type === 'remove') {
 			films.splice(index, 1);
+			saveFilmsToLocStorage();
 		}
 	}
 
